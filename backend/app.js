@@ -76,6 +76,12 @@ app.delete('/users/:id', (req, res) => {
   res.json({ message: 'Usuario eliminado' });
 
 });
+// EvoUsers - Registro de peticiones HTTP
+app.use((req, res, next) => {
+  console.log(`Petición: ${req.method} ${req.url}`);
+  next();
+});
+
 
 // Manejo de errores
 app.use((err, req, res, next) => {
